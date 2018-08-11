@@ -4,7 +4,11 @@ class MateriasController < ApplicationController
   # GET /materias
   # GET /materias.json
   def index
-    @materias = Materia.all
+    @materias = if params[:search].present?
+                  Materia.search(params[:search]).page params[:page]
+                else
+                  Materia.order(:descricao).page params[:page]
+    end
   end
 
   # GET /materias/1
@@ -68,6 +72,6 @@ class MateriasController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def materia_params
-    params.require(:materia).permit(:descricao, :carga_horaria, :curso_id)
+    params.require(:materia).permit(:descricao, :carga_horaria, :curso_id, :search)
   end
 end

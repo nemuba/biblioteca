@@ -1,16 +1,19 @@
 class LivrosController < ApplicationController
-  before_action :set_livro, only: [:show, :edit, :update, :destroy]
+  before_action :set_livro, only: %i[show edit update destroy]
 
   # GET /livros
   # GET /livros.json
   def index
-    @livros = Livro.all
+    @livros = if params[:search].present?
+                Livro.search(params[:search]).page params[:page]
+              else
+                Livro.order(:autor).page params[:page]
+    end
   end
 
   # GET /livros/1
   # GET /livros/1.json
-  def show
-  end
+  def show; end
 
   # GET /livros/new
   def new
@@ -18,8 +21,7 @@ class LivrosController < ApplicationController
   end
 
   # GET /livros/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /livros
   # POST /livros.json
@@ -62,13 +64,14 @@ class LivrosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_livro
-      @livro = Livro.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def livro_params
-      params.require(:livro).permit(:autor, :titulo, :ano_publicacao, :curso_id, :semestre_id, :materia_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_livro
+    @livro = Livro.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def livro_params
+    params.require(:livro).permit(:autor, :titulo, :ano_publicacao, :curso_id, :semestre_id, :materia_id, :search)
+  end
 end

@@ -4,7 +4,11 @@ class AlunosController < ApplicationController
   # GET /alunos
   # GET /alunos.json
   def index
-    @alunos = Aluno.all
+    @alunos = if params[:search].present?
+                Aluno.search(params[:search]).page params[:page]
+              else
+                Aluno.order(:nome).page params[:page]
+    end
   end
 
   # GET /alunos/1
@@ -68,6 +72,6 @@ class AlunosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def aluno_params
-    params.require(:aluno).permit(:nome, :ra, :email, :curso_id)
+    params.require(:aluno).permit(:nome, :ra, :email, :curso_id, :search)
   end
 end

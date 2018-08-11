@@ -4,7 +4,11 @@ class CursosController < ApplicationController
   # GET /cursos
   # GET /cursos.json
   def index
-    @cursos = Curso.all
+    @cursos = if params[:search].present?
+                Curso.search(params[:search]).page params[:page]
+              else
+                Curso.order(:descricao).page params[:page]
+    end
   end
 
   # GET /cursos/1
@@ -68,6 +72,6 @@ class CursosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def curso_params
-    params.require(:curso).permit(:descricao, :duracao, :periodo, :semestre_id)
+    params.require(:curso).permit(:descricao, :duracao, :periodo, :semestre_id, :search)
   end
 end

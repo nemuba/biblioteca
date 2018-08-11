@@ -1,0 +1,14 @@
+<div class="row justify-content-first">
+  <div class="col-12 mb-3">
+    <%= form_tag cursos_path, method: :get, class: "navbar-form form-inline search-form" do %>
+    <div class="form-group">
+      <%= label_tag :search, "Pesquisar", class: "mr-2" %>
+      <%= text_field_tag( :search, params[:search], placeholder: "Ex: Pedagogia", class: "form-control mr-2 float-left" ) %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag "Pesquisar", class: "btn btn-primary float-right" %>
+    </div>
+
+  <% end %>
+</div>
+</div>

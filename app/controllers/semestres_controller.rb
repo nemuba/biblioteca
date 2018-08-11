@@ -4,7 +4,11 @@ class SemestresController < ApplicationController
   # GET /semestres
   # GET /semestres.json
   def index
-    @semestres = Semestre.all
+    @semestres = if params[:search].present?
+                   Semestre.search(params[:search]).page params[:page]
+                 else
+                   @semestres = Semestre.order(:descricao).page params[:page]
+   end
   end
 
   # GET /semestres/1
@@ -68,6 +72,6 @@ class SemestresController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def semestre_params
-    params.require(:semestre).permit(:descricao)
+    params.require(:semestre).permit(:descricao, :search)
   end
 end
