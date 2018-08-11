@@ -1,0 +1,48 @@
+<%= form_with(model: livro, local: true) do |form| %>
+<% if livro.errors.any? %>
+  <div class="alert alert-danger">
+    <h2><%= pluralize(livro.errors.count, "error") %>
+      prohibited this livro from being saved:</h2>
+
+    <ul>
+      <% livro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <%= form.label :autor %>
+  <%= form.text_field :autor, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :titulo %>
+  <%= form.text_field :titulo, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :ano_publicacao %>
+  <%= form.date_select :ano_publicacao, {start_year: 1900, use_month_numbers: true} %>
+</div>
+
+<div class="form-group">
+  <%= form.label :curso_id %>
+  <%= form.collection_select :curso_id, Curso.order(:descricao), :id, :descricao,{prompt: "Selecione o curso"}, {class: "form-control"} %>
+</div>
+
+<div class="form-group">
+  <%= form.label :semestre_id %>
+  <%= form.collection_select :semestre_id, Semestre.order(:descricao), :id, :descricao,{prompt: "Selecione o semestre"}, {class: "form-control"} %>
+</div>
+
+<div class="form-group">
+  <%= form.label :materia_id %>
+  <%= form.collection_select :materia_id, Materia.order(:descricao), :id, :descricao,{prompt: "Selecione a matéria"}, {class: "form-control"} %>
+</div>
+
+<div class="form-group">
+  <%= form.submit nil, class: "btn btn-primary" %>
+</div>
+<% end %>

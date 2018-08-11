@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-lg-8">
+      <% model_class = Livro %>
+        <h1 class="mt-2 pb-2"><%= t('.list', :default=> t('helpers.title.list', :model=> model_class.model_name.human.titleize.pluralize)) %></h1>
+
+        <table class="table table-border">
+          <thead>
+            <tr>
+              <th><%= model_class.human_attribute_name(:autor) %></th>
+              <th><%= model_class.human_attribute_name(:titulo) %></th>
+              <th><%= model_class.human_attribute_name(:ano_publicacao) %></th>
+              <th><%= model_class.human_attribute_name(:curso_id) %></th>
+              <th><%= model_class.human_attribute_name(:semestre_id) %></th>
+              <th><%= model_class.human_attribute_name(:materia_id) %></th>
+              <th colspan="3"><%= t('.options', :default=> t('helpers.options')) %></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @livros.each do |livro| %>
+              <tr>
+                <td><%= livro.autor %></td>
+                <td><%= livro.titulo %></td>
+                <td><%= livro.ano_publicacao %></td>
+                <td><%= livro.curso.descricao %></td>
+                <td><%= livro.semestre.descricao %></td>
+                <td><%= livro.materia.descricao %></td>
+                <td><%= link_to t('.show', :default=> t('helpers.submit.show')), livro, class: "btn btn-outline-info btn-sm" %></td>
+                <td><%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_livro_path(livro), class: "btn btn-outline-success btn-sm" %></td>
+                <td><%= link_to t('.delete', :default=> t('helpers.submit.delete')), livro, class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: t('.delete', :default=> t('helpers.messages.delete')) } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to t('.new', :default=> t('helpers.submit.new')), new_livro_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>

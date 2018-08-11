@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-lg-8">
+      <% model_class = Materia %>
+        <h1 class="mt-2 pb-2"><%= model_class.model_name.human.titleize %></h1>
+        <p>
+          <strong><%= model_class.human_attribute_name(:descricao) %>:</strong>
+          <%= @materia.descricao %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:carga_horaria) %>:</strong>
+          <%= @materia.carga_horaria %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:curso_id) %>:</strong>
+          <%= @materia.curso.descricao %>
+        </p>
+
+        <%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_materia_path(@materia), class: "btn btn-success btn-sm" %>
+        |
+        <%= link_to t('.back', :default=> t('helpers.submit.back')), materias_path, class: "btn btn-danger btn-sm" %>
+      </div>
+    </div>
+  </div>

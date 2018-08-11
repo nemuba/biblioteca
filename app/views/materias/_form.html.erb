@@ -1,0 +1,33 @@
+<%= form_with(model: materia, local: true) do |form| %>
+<% if materia.errors.any? %>
+  <div class="alert alert-danger">
+    <h2><%= pluralize(materia.errors.count, "error") %>
+      prohibited this materia from being saved:</h2>
+
+    <ul>
+      <% materia.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <%= form.label :descricao %>
+  <%= form.text_field :descricao, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :carga_horaria %>
+  <%= form.number_field :carga_horaria, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :curso_id %>
+  <%= form.collection_select :curso_id, Curso.order(:descricao), :id, :descricao, {prompt: "Selecione o curso"}, {class: "form-control"} %>
+</div>
+
+<div class="form-group">
+  <%= form.submit nil, class: "btn btn-primary"%>
+</div>
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  autor: MyString
+  titulo: MyString
+  ano_publicacao: 2018-08-08
+  curso: one
+  semestre: one
+  materia: one
+
+two:
+  autor: MyString
+  titulo: MyString
+  ano_publicacao: 2018-08-08
+  curso: two
+  semestre: two
+  materia: two

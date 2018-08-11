@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-lg-8">
+      <% model_class = Aluno %>
+        <h1 class="mt-2 pb-2"><%= model_class.model_name.human.titleize %></h1>
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:nome) %>:</strong>
+          <%= @aluno.nome %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:ra) %>:</strong>
+          <%= @aluno.ra %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:email) %>:</strong>
+          <%= @aluno.email %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:curso_id) %>:</strong>
+          <%= @aluno.curso.descricao %>
+        </p>
+
+        <%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_aluno_path(@aluno), class: "btn btn-success btn-sm" %>
+        |
+        <%= link_to t('.back', :default=> t('helpers.submit.back')), alunos_path, class: "btn btn-danger btn-sm" %>
+      </div>
+    </div>
+  </div>

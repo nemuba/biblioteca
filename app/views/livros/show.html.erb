@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-lg-8">
+      <% model_class = Livro %>
+        <h1 class="mt-2 pb-2"><%= model_class.model_name.human.titleize %></h1>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:autor) %>:</strong>
+          <%= @livro.autor %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:titulo) %>:</strong>
+          <%= @livro.titulo %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:ano_publicacao) %>:</strong>
+          <%= @livro.ano_publicacao %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:curso_id) %>:</strong>
+          <%= @livro.curso.descricao %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:semestre_id) %>:</strong>
+          <%= @livro.semestre.descricao %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:materia_id) %>:</strong>
+          <%= @livro.materia.descricao %>
+        </p>
+
+        <%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_livro_path(@livro), class: "btn btn-success btn-sm" %>
+        |
+        <%= link_to t('.back', :default=> t('helpers.submit.back')), livros_path, class: "btn btn-danger btn-sm" %>
+      </div>
+    </div>
+  </div>

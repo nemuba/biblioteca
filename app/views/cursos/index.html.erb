@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-lg-8">
+      <% model_class = Curso %>
+        <h1 class="mt-2 pb-2"><%= t('.list', :default=> t('helpers.title.list', :model=> model_class.model_name.human.titleize.pluralize)) %></h1>
+
+        <table class="table table-border">
+          <thead>
+            <tr>
+              <th><%= model_class.human_attribute_name(:descricao) %></th>
+              <th><%= model_class.human_attribute_name(:duracao) %></th>
+              <th><%= model_class.human_attribute_name(:periodo) %></th>
+              <th><%= model_class.human_attribute_name(:semestre_id) %></th>
+              <th colspan="3"><%= t('.options', :default=> t('helpers.options')) %></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @cursos.each do |curso| %>
+              <tr>
+                <td><%= curso.descricao %></td>
+                <td><%= curso.duracao %></td>
+                <td><%= curso.periodo %></td>
+                <td><%= curso.semestre.descricao %></td>
+                <td><%= link_to t('.show', :default=> t('helpers.submit.show')), curso, class: "btn btn-outline-info btn-sm" %></td>
+                <td><%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_curso_path(curso), class: "btn btn-outline-success btn-sm" %></td>
+                <td><%= link_to t('.delete', :default=> t('helpers.submit.delete')), curso, class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: t('.delete', :default=> t('helpers.messages.delete')) } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to t('.new', :default=> t('helpers.submit.new')), new_curso_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>

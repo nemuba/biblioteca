@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-lg-8">
+      <% model_class = Curso %>
+        <h1 class="mt-2 pb-2"><%= model_class.model_name.human.titleize %></h1>
+        <p>
+          <strong><%= model_class.human_attribute_name(:descricao) %>:</strong>
+          <%= @curso.descricao %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:duracao) %>:</strong>
+          <%= @curso.duracao %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:periodo) %>:</strong>
+          <%= @curso.periodo %>
+        </p>
+
+        <p>
+          <strong><%= model_class.human_attribute_name(:semestre_id) %>:</strong>
+          <%= @curso.semestre.descricao %>
+        </p>
+
+        <%= link_to t('.edit', :default=>t('helpers.submit.edit')), edit_curso_path(@curso), class: "btn btn-success btn-sm" %>
+        |
+        <%= link_to t('.back', :default=>t('helpers.submit.back')), cursos_path, class: "btn btn-danger btn-sm" %>
+      </div>
+    </div>
+  </div>

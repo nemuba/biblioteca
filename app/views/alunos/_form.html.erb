@@ -1,0 +1,38 @@
+<%= form_with(model: aluno, local: true) do |form| %>
+<% if aluno.errors.any? %>
+  <div id="alert alert-danger">
+    <h2><%= pluralize(aluno.errors.count, "error") %>
+      prohibited this aluno from being saved:</h2>
+
+    <ul>
+      <% aluno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <%= form.label :nome %>
+  <%= form.text_field :nome, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :ra %>
+  <%= form.text_field :ra, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :email %>
+  <%= form.text_field :email, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= form.label :curso_id %>
+  <%= form.collection_select :curso_id, Curso.order(:descricao), :id, :descricao, {:prompt=> "Selecione o curso"}, {class: "form-control"} %>
+</div>
+
+<div class="form-group">
+  <%= form.submit nil, class: "btn btn-primary" %>
+</div>
+<% end %>

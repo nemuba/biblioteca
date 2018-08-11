@@ -1,0 +1,32 @@
+pt-BR:
+  activerecord:
+    models:
+      aluno: Aluno
+      curso: Curso
+      semestre: Semestre
+      materia: Matéria
+      livro: Livro
+    attributes:
+      aluno:
+        id: "ID"
+        nome: "Nome"
+        ra: "Registro Acadêmico"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+      curso:
+        id: "ID"
+        descricao: "Descrição"
+        duracao: "Duração"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+      materia:
+        id: "ID"
+        descricao: "Descrição"
+        carga_horaria: "Carga/Horária"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+      semestre:
+        id: "ID"
+        descricao: "Descrição"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
