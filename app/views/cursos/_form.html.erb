@@ -1,6 +1,6 @@
 <%= form_with(model: curso, local: true) do |form| %>
 <% if curso.errors.any? %>
-  <div id="alert alert-danger">
+  <div class="alert alert-danger">
     <h2><%= pluralize(curso.errors.count, "error") %>
       prohibited this curso from being saved:</h2>
 

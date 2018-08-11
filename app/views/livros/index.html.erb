@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row justify-content-end">
-    <div class="col-lg-8">
+  <div class="row">
+    <div class="col-lg-12">
       <% model_class = Livro %>
         <h1 class="mt-2 pb-2"><%= t('.list', :default=> t('helpers.title.list', :model=> model_class.model_name.human.titleize.pluralize)) %></h1>
 
@@ -22,7 +22,7 @@
               <tr>
                 <td><%= livro.autor %></td>
                 <td><%= livro.titulo %></td>
-                <td><%= livro.ano_publicacao %></td>
+                <td><%= livro.ano_publicacao.strftime("%d/%m/%Y") %></td>
                 <td><%= livro.curso.descricao %></td>
                 <td><%= livro.semestre.descricao %></td>
                 <td><%= livro.materia.descricao %></td>

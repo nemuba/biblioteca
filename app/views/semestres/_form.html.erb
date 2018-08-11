@@ -1,6 +1,6 @@
 <%= form_with(model: semestre, local: true) do |form| %>
 <% if semestre.errors.any? %>
-  <div id="error_explanation">
+  <div class="alert alert-danger">
     <h2><%= pluralize(semestre.errors.count, "error") %>
       prohibited this semestr from being saved:</h2>
 

@@ -1,6 +1,6 @@
 <%= form_with(model: aluno, local: true) do |form| %>
 <% if aluno.errors.any? %>
-  <div id="alert alert-danger">
+  <div class="alert alert-danger">
     <h2><%= pluralize(aluno.errors.count, "error") %>
       prohibited this aluno from being saved:</h2>
 
