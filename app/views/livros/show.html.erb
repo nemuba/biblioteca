@@ -1,42 +1,38 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <% model_class = Livro %>
-        <h1 class="mt-2 pb-2"><%= model_class.model_name.human.titleize %></h1>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:autor) %>:</strong>
-          <%= @livro.autor %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:titulo) %>:</strong>
-          <%= @livro.titulo %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:ano_publicacao) %>:</strong>
-          <%= @livro.ano_publicacao %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:curso_id) %>:</strong>
-          <%= @livro.curso.descricao %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:semestre_id) %>:</strong>
-          <%= @livro.semestre.descricao %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:materia_id) %>:</strong>
-          <%= @livro.materia.descricao %>
-        </p>
-
-        <%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_livro_path(@livro), class: "btn btn-success btn-sm" %>
-        |
-        <%= link_to t('.back', :default=> t('helpers.submit.back')), livros_path, class: "btn btn-danger btn-sm" %>
+<% model_class = Livro %>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="card bg-light text-black mt-3">
+          <div class="card-header bg-primary text-white">
+            <h4><%= model_class.model_name.human.titleize %></h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              <strong><%= model_class.human_attribute_name(:autor) %>:</strong>
+              <%= @livro.autor %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:titulo) %>:</strong>
+              <%= @livro.titulo %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:ano_publicacao) %>:</strong>
+              <%= @livro.ano_publicacao %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:curso_id) %>:</strong>
+              <%= @livro.curso.descricao %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:semestre_id) %>:</strong>
+              <%= @livro.semestre.descricao %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:materia_id) %>:</strong>
+              <%= @livro.materia.descricao %>
+            </p>
+          </div>
+          <div class="card-footer">
+            <%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_livro_path(@livro), class: "btn btn-success btn-sm" %>
+            |
+            <%= link_to t('.back', :default=> t('helpers.submit.back')), livros_path, class: "btn btn-danger btn-sm" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

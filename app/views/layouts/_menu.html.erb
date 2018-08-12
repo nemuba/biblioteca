@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
+<nav class="navbar navbar-expand navbar-light bg-light">
   <a href="<%= root_path %>" class="navbar-brand">
     Biblioteca
     <i class="fas fa-book-reader" aria-hidden="true"></i>
@@ -8,7 +8,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item <%= current_class?(root_path) %>">
         <%= link_to 'Home', root_path, class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
@@ -16,11 +16,11 @@
           Cadastros
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to 'Alunos', alunos_path, class: 'dropdown-item' %>
-          <%= link_to 'Cursos', cursos_path, class: 'dropdown-item' %>
-          <%= link_to 'Matérias', materias_path, class: 'dropdown-item' %>
-          <%= link_to 'Livros', livros_path, class: 'dropdown-item' %>
-          <%= link_to 'Semestres', semestres_path, class: 'dropdown-item' %>
+          <%= link_to 'Alunos', alunos_path, class: "dropdown-item #{current_class?(alunos_path)}" %>
+          <%= link_to 'Cursos', cursos_path, class: "dropdown-item #{current_class?(cursos_path)}" %>
+          <%= link_to 'Matérias', materias_path, class: "dropdown-item #{current_class?(materias_path)}" %>
+          <%= link_to 'Livros', livros_path, class: "dropdown-item #{current_class?(livros_path)}" %>
+          <%= link_to 'Semestres', semestres_path, class: "dropdown-item #{current_class?(semestres_path)}" %>
         </div>
       </li>
     </ul>

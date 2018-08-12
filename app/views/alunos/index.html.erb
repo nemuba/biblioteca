@@ -34,7 +34,16 @@
         <br>
         <%= link_to t('.new', :default=> t('helpers.submit.new')), new_aluno_path, class: "btn btn-primary" %>
         <div class="row justify-content-end">
-          <%= paginate @alunos, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
+          <div class="col-6">
+            <div class="row justify-content-end">
+              <%= page_entries_info @alunos, entry_name: "#{model_class.model_name.human.titleize}(s)" %>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row justify-content-end">
+              <%= paginate @alunos, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

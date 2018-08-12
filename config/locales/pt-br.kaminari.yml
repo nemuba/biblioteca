@@ -2,11 +2,11 @@ pt-BR:
   helpers:
     page_entries_info:
       more_pages:
-        display_entries: Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de um total de <b>%{total}</b>
+        display_entries: Exibindo &nbsp;<b>%{first} - %{last}</b>&nbsp;  de um total de &nbsp;<b>%{total}</b>
       one_page:
         display_entries:
-          one: Exibindo <b>1</b> %{entry_name}
-          other: Exibindo <b>%{count}</b> %{entry_name}
+          one: Exibindo &nbsp;<b>1</b> &nbsp;%{entry_name}
+          other: Exibindo &nbsp;<b>%{count}</b>&nbsp; %{entry_name}
           zero: Nenhum %{entry_name} encontrado
   views:
     pagination:

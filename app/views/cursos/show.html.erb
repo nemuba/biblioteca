@@ -1,31 +1,32 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <% model_class = Curso %>
-        <h1 class="mt-2 pb-2"><%= model_class.model_name.human.titleize %></h1>
-        <p>
-          <strong><%= model_class.human_attribute_name(:descricao) %>:</strong>
-          <%= @curso.descricao %>
-        </p>
+<% model_class = Curso %>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="card text-black bg-light mt-3" style="max-width: 18rem;">
+          <div class="card-header bg-primary text-white">
+            <h4><%= model_class.model_name.human.titleize %></h4>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= @curso.descricao %></h5>
+            <p class="card-text">
+              <strong><%= model_class.human_attribute_name(:duracao) %>:</strong>
+              <%= @curso.duracao %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:periodo) %>:</strong>
+              <%= @curso.periodo %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:semestre_id) %>:</strong>
+              <%= @curso.semestre.descricao %>
+              <br>
+            </p>
+          </div>
+          <div class="card-footer">
+            <%= link_to t('.edit', :default=>t('helpers.submit.edit')), edit_curso_path(@curso), class: "btn btn-success btn-sm" %>
+            |
+            <%= link_to t('.back', :default=>t('helpers.submit.back')), cursos_path, class: "btn btn-danger btn-sm" %>
+          </div>
+        </div>
 
-        <p>
-          <strong><%= model_class.human_attribute_name(:duracao) %>:</strong>
-          <%= @curso.duracao %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:periodo) %>:</strong>
-          <%= @curso.periodo %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:semestre_id) %>:</strong>
-          <%= @curso.semestre.descricao %>
-        </p>
-
-        <%= link_to t('.edit', :default=>t('helpers.submit.edit')), edit_curso_path(@curso), class: "btn btn-success btn-sm" %>
-        |
-        <%= link_to t('.back', :default=>t('helpers.submit.back')), cursos_path, class: "btn btn-danger btn-sm" %>
       </div>
     </div>
   </div>

@@ -12,4 +12,12 @@ module ApplicationHelper
     end
     nil
   end
+
+  def current_class?(test_path)
+    if request.path == test_path
+      'active'
+    else
+      ''
+    end
+  end
 end

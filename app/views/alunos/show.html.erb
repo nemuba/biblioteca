@@ -1,33 +1,33 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <% model_class = Aluno %>
-        <h1 class="mt-2 pb-2"><%= model_class.model_name.human.titleize %></h1>
-        <p id="notice"><%= notice %></p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:nome) %>:</strong>
-          <%= @aluno.nome %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:ra) %>:</strong>
-          <%= @aluno.ra %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:email) %>:</strong>
-          <%= @aluno.email %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:curso_id) %>:</strong>
-          <%= @aluno.curso.descricao %>
-        </p>
-
-        <%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_aluno_path(@aluno), class: "btn btn-success btn-sm" %>
-        |
-        <%= link_to t('.back', :default=> t('helpers.submit.back')), alunos_path, class: "btn btn-danger btn-sm" %>
+<% model_class = Aluno %>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="card mt-2 bg-light text-black">
+          <div class="card-header bg-primary text-white">
+            <h4><%= model_class.model_name.human.titleize %></h4>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><%= @aluno.nome %></h4>
+            <p class="card-text">
+              <strong><%= model_class.human_attribute_name(:ra) %>:</strong>
+              <%= @aluno.ra %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:email) %>:</strong>
+              <%= @aluno.email %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:curso_id) %>:</strong>
+              <%= @aluno.curso.descricao %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:created_at) %>:</strong>
+              <%= @aluno.created_at.strftime("%d/%m/%Y") %>
+            </p>
+          </div>
+          <div class="card-footer">
+            <%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_aluno_path(@aluno), class: "btn btn-success btn-sm" %>
+            |
+            <%= link_to t('.back', :default=> t('helpers.submit.back')), alunos_path, class: "btn btn-danger btn-sm" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,26 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <% model_class = Materia %>
-        <h1 class="mt-2 pb-2"><%= model_class.model_name.human.titleize %></h1>
-        <p>
-          <strong><%= model_class.human_attribute_name(:descricao) %>:</strong>
-          <%= @materia.descricao %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:carga_horaria) %>:</strong>
-          <%= @materia.carga_horaria %>
-        </p>
-
-        <p>
-          <strong><%= model_class.human_attribute_name(:curso_id) %>:</strong>
-          <%= @materia.curso.descricao %>
-        </p>
-
-        <%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_materia_path(@materia), class: "btn btn-success btn-sm" %>
-        |
-        <%= link_to t('.back', :default=> t('helpers.submit.back')), materias_path, class: "btn btn-danger btn-sm" %>
+<% model_class = Materia %>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="card bg-light text-black mt-3">
+          <div class="card-header text-white bg-primary">
+            <h4><%= model_class.model_name.human.titleize %></h4>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= @materia.descricao %>
+            </h4>
+            <p class="card-text">
+              <strong><%= model_class.human_attribute_name(:carga_horaria) %>:</strong>
+              <%= @materia.carga_horaria %>
+              <br>
+              <strong><%= model_class.human_attribute_name(:curso_id) %>:</strong>
+              <%= @materia.curso.descricao %>
+            </p>
+          </div>
+          <div class="card-footer">
+            <%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_materia_path(@materia), class: "btn btn-success btn-sm" %>
+            |
+            <%= link_to t('.back', :default=> t('helpers.submit.back')), materias_path, class: "btn btn-danger btn-sm" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
