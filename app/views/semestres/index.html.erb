@@ -29,7 +29,7 @@
         </table>
         <hr>
         <%= link_to t('.new', :default=> t('helpers.submit.new')), new_semestr_path, class: "btn btn-primary" %>
-        <div class="row justify-content-end">
+        <div class="row justify-content-center mb-3">
           <div class="col-6">
             <div class="row justify-content-end">
               <%= page_entries_info @semestres, entry_name: "#{model_class.model_name.human.titleize}(s)" %>

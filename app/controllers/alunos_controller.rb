@@ -1,6 +1,6 @@
 class AlunosController < ApplicationController
   before_action :set_aluno, only: %i[show edit update destroy]
-
+  before_action :authenticate_usuario!
   # GET /alunos
   # GET /alunos.json
   def index

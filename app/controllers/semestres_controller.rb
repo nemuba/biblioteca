@@ -1,6 +1,6 @@
 class SemestresController < ApplicationController
   before_action :set_semestre, only: %i[show edit update destroy]
-
+  before_action :authenticate_usuario!
   # GET /semestres
   # GET /semestres.json
   def index

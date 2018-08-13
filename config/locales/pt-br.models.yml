@@ -6,6 +6,7 @@ pt-BR:
       semestre: Semestre
       materia: Matéria
       livro: Livro
+      usuario: Usuário
     attributes:
       aluno:
         id: "ID"
@@ -43,3 +44,8 @@ pt-BR:
         semestre_id: "Semestre"
         created_at: "Criado em"
         updated_at: "Atualizado em"
+      usuario:
+        id: "ID"
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirmação"

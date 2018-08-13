@@ -11,18 +11,31 @@
       <li class="nav-item <%= current_class?(root_path) %>">
         <%= link_to 'Home', root_path, class: "nav-link" %>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Cadastros
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to 'Alunos', alunos_path, class: "dropdown-item #{current_class?(alunos_path)}" %>
-          <%= link_to 'Cursos', cursos_path, class: "dropdown-item #{current_class?(cursos_path)}" %>
-          <%= link_to 'Matérias', materias_path, class: "dropdown-item #{current_class?(materias_path)}" %>
-          <%= link_to 'Livros', livros_path, class: "dropdown-item #{current_class?(livros_path)}" %>
-          <%= link_to 'Semestres', semestres_path, class: "dropdown-item #{current_class?(semestres_path)}" %>
-        </div>
-      </li>
+      <% if usuario_signed_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cadastros
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to 'Alunos', alunos_path, class: "dropdown-item #{current_class?(alunos_path)}" %>
+            <%= link_to 'Cursos', cursos_path, class: "dropdown-item #{current_class?(cursos_path)}" %>
+            <%= link_to 'Matérias', materias_path, class: "dropdown-item #{current_class?(materias_path)}" %>
+            <%= link_to 'Livros', livros_path, class: "dropdown-item #{current_class?(livros_path)}" %>
+            <%= link_to 'Semestres', semestres_path, class: "dropdown-item #{current_class?(semestres_path)}" %>
+          </div>
+
+        </li>
+        <li class="nav-item active">
+          <%= link_to "#{current_usuario.email}", nil, class: "nav-link" %>
+        </li>
+        <li class="nav-item <%= current_class?(destroy_usuario_session_path) %>">
+          <%= link_to 'Sair', destroy_usuario_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item <%= current_class?(new_usuario_session_path) %>">
+          <%= link_to 'Entrar', new_usuario_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>

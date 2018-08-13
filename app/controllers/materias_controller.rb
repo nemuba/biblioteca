@@ -1,6 +1,6 @@
 class MateriasController < ApplicationController
   before_action :set_materia, only: %i[show edit update destroy]
-
+  before_action :authenticate_usuario!
   # GET /materias
   # GET /materias.json
   def index

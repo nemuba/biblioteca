@@ -37,7 +37,7 @@
         </table>
         <br>
         <%= link_to t('.new', :default=> t('helpers.submit.new')), new_livro_path, class: "btn btn-primary" %>
-        <div class="row justify-content-end">
+        <div class="row justify-content-center mb-3">
           <div class="col-6">
             <div class="row justify-content-end">
               <%= page_entries_info @livros, entry_name: "#{model_class.model_name.human.titleize}(s)" %>
