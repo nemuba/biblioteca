@@ -4,31 +4,33 @@
       <% model_class = Materia %>
         <h1 class="mt-2 pb-2"><%= t('.list', :default=> t('helpers.title.list', :model=> model_class.model_name.human.titleize.pluralize)) %></h1>
         <%= render partial: 'form-search' %>
-        <table class="table table-striped table-hover">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col"><%= model_class.human_attribute_name(:descricao) %></th>
-              <th scope="col"><%= model_class.human_attribute_name(:carga_horaria) %></th>
-              <th scope="col"><%= model_class.human_attribute_name(:curso_id) %></th>
-              <th scope="col" colspan="3" class="text-center"><%= t('.options', :default=> t('helpers.options')) %></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @materias.each do |materia| %>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead class="thead-dark">
               <tr>
-                <th scope="row"><%= materia.id %></th>
-                <td><%= materia.descricao %></td>
-                <td><%= materia.carga_horaria %></td>
-                <td><%= materia.curso.descricao %></td>
-                <td><%= link_to t('.show', :default=> t('helpers.submit.show')), materia, class: "btn btn-outline-info btn-sm" %></td>
-                <td><%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_materia_path(materia), class: "btn btn-outline-success btn-sm" %></td>
-                <td><%= link_to t('.delete', :default=> t('helpers.submit.delete')), materia, class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: t('.delete', :default=> t('helpers.messages.delete')) } %></td>
+                <th scope="col">#</th>
+                <th scope="col"><%= model_class.human_attribute_name(:descricao) %></th>
+                <th scope="col"><%= model_class.human_attribute_name(:carga_horaria) %></th>
+                <th scope="col"><%= model_class.human_attribute_name(:curso_id) %></th>
+                <th scope="col" colspan="3" class="text-center"><%= t('.options', :default=> t('helpers.options')) %></th>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              <% @materias.each do |materia| %>
+                <tr>
+                  <th scope="row"><%= materia.id %></th>
+                  <td><%= materia.descricao %></td>
+                  <td><%= materia.carga_horaria %></td>
+                  <td><%= materia.curso.descricao %></td>
+                  <td><%= link_to t('.show', :default=> t('helpers.submit.show')), materia, class: "btn btn-outline-info btn-sm" %></td>
+                  <td><%= link_to t('.edit', :default=> t('helpers.submit.edit')), edit_materia_path(materia), class: "btn btn-outline-success btn-sm" %></td>
+                  <td><%= link_to t('.delete', :default=> t('helpers.submit.delete')), materia, class: "btn btn-outline-danger btn-sm", method: :delete, data: { confirm: t('.delete', :default=> t('helpers.messages.delete')) } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
         <br>
         <%= link_to t('.new', :default=> t('helpers.submit.new')), new_materia_path, class: "btn btn-primary" %>
         <div class="row justify-content-center mb-3">
