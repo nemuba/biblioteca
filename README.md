@@ -1,24 +1,24 @@
-# README
+# BIBLIOTECA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sistema de gerenciamento de uma biblioteca:
+- Cadastro de Alunos
+- Cadastro de Cursos
+- Cadastro de Matérias
+- Cadastro de Livros
+- Cadastro de Semestres
 
-Things you may want to cover:
+Sistema desenvolvido em Ruby on Rails:
 
-* Ruby version
+* Ruby version: 2.5.1
 
-* System dependencies
+* Rails version: 5.2.0
+
+* System dependencies: Devise, Kaminari, Kaminari-bootstrap4-views, bootstrap, font-awesome-rails
 
 * Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Database creation:
+- rake db:create
+- rake db:migrate
 
 * ...
