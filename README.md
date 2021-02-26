@@ -14,11 +14,3 @@ Sistema desenvolvido em Ruby on Rails:
 * Rails version: 5.2.0
 
 * System dependencies: Devise, Kaminari, Kaminari-bootstrap4-views, bootstrap, font-awesome-rails
-
-* Configuration
-
-* Database creation:
-- rake db:create
-- rake db:migrate
-
-* ...
